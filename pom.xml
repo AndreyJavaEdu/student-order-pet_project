@@ -13,7 +13,7 @@
 
     </dependencies>
 
-    <groupId>edu.studenproject</groupId>
+    <groupId>edu.studentproject</groupId>
     <artifactId>student-order-pet_project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
