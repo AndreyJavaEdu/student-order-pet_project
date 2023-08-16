@@ -23,13 +23,8 @@ public class DictionaryDaoImpl implements DictionaryDao {
     public static final String GET_AREA= "select * " +
             "from jc_country_struct where area_id like ? AND area_id <> ? ";
 
-    // TODO - makee one method
     private Connection getConnection() throws SQLException {
-        Connection con = DriverManager.getConnection(
-                Config.getProperty(Config.DB_URL),
-                Config.getProperty(Config.DB_LOGIN),
-                Config.getProperty(Config.DB_PASSWORD));
-        return con;
+        return ConnectionBuilder.getConnection();
     }
 
     public List<Street> findStreets(String pattern) throws DaoException {
