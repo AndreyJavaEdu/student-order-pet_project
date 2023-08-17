@@ -25,28 +25,8 @@ import java.util.stream.Collectors;
 public class DictionaryDaoImplTest {
 
     @BeforeClass //выполняется вначале один раз перд всеми методами
-    public static void startUp() throws URISyntaxException, IOException {
-        URL url1 = DictionaryDaoImplTest.class.getClassLoader()
-                .getResource("student_project.sql");
-        URL url2 = DictionaryDaoImplTest.class.getClassLoader()
-                .getResource("student_data.sql");
-
-        Path path1 = Paths.get(url1.toURI());
-        Path path2 = Paths.get(url2.toURI());
-        List<String> str1 = Files.readAllLines(path1);
-        List<String> str2 = Files.readAllLines(path2);
-
-        String sql1 = str1.stream().collect(Collectors.joining(" "));
-        String sql2 = str2.stream().collect(Collectors.joining(" "));
-
-        try (Connection con = ConnectionBuilder.getConnection();
-             Statement stmt = con.createStatement()) {
-            stmt.executeUpdate(sql1);
-            stmt.executeUpdate(sql2);
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+    public static void startUp() throws Exception {
+      DBInit.startUp();
     }
 
     @Test
@@ -57,7 +37,7 @@ public class DictionaryDaoImplTest {
 
     @Test
     public void testPassportOffice() throws DaoException {
-        List<PassportOffice> po = new DictionaryDaoImpl().findPassportOffices("010020000001");
+        List<PassportOffice> po = new DictionaryDaoImpl().findPassportOffices("010020000000");
         Assert.assertTrue(po.size() == 2);
     }
 
