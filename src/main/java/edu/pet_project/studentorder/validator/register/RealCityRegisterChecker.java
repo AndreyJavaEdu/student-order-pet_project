@@ -1,9 +1,10 @@
-package edu.pet_project.studentorder.validator;
+package edu.pet_project.studentorder.validator.register;
 
 import edu.pet_project.studentorder.domain.CityRegisterResponse;
 import edu.pet_project.studentorder.domain.Person;
 import edu.pet_project.studentorder.exception.CityRegisterException;
 import edu.pet_project.studentorder.exception.TransportException;
+import edu.pet_project.studentorder.validator.register.CityRegisterChecker;
 
 //В этом классе проверяем персону в методе
 public class RealCityRegisterChecker implements CityRegisterChecker {

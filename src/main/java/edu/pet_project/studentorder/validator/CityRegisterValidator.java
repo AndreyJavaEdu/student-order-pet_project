@@ -3,6 +3,8 @@ package edu.pet_project.studentorder.validator;
 import edu.pet_project.studentorder.domain.*;
 import edu.pet_project.studentorder.exception.CityRegisterException;
 import edu.pet_project.studentorder.exception.TransportException;
+import edu.pet_project.studentorder.validator.register.CityRegisterChecker;
+import edu.pet_project.studentorder.validator.register.FakeCityRegisterChecker;
 
 import java.util.List;
 

@@ -30,7 +30,7 @@ public class StudentOrderDaoImplTest {
     }
     @Test
     public void getStudentOrders() throws DaoException {
-        List<StudentOrder> studentOrders = new StudentOrderDaoImpl().getStudentOrders();
+            List<StudentOrder> studentOrders = new StudentOrderDaoImpl().getStudentOrders();
         Assert.assertTrue(studentOrders.size()==1);
     }
 
