@@ -1,4 +1,4 @@
-package edu.pet_project.studentorder.validator;
+package edu.pet_project.studentorder.validator.register;
 
 import edu.pet_project.studentorder.domain.Adult;
 import edu.pet_project.studentorder.domain.Child;
@@ -6,6 +6,7 @@ import edu.pet_project.studentorder.domain.CityRegisterResponse;
 import edu.pet_project.studentorder.domain.Person;
 import edu.pet_project.studentorder.exception.CityRegisterException;
 import edu.pet_project.studentorder.exception.TransportException;
+import edu.pet_project.studentorder.validator.register.CityRegisterChecker;
 
 public class FakeCityRegisterChecker implements CityRegisterChecker {
     private static final String GOOD_1 = "1000";
