@@ -94,6 +94,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
                 stmt.setDate(35, java.sql.Date.valueOf(so.getMarriageDate()));
 
                 stmt.executeUpdate();
+
                 ResultSet gkRs = stmt.getGeneratedKeys();
                 if (gkRs.next()) {
                     result = gkRs.getLong(1);

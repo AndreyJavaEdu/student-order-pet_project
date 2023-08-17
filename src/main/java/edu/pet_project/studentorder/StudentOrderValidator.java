@@ -1,6 +1,8 @@
 package edu.pet_project.studentorder;
 
+import edu.pet_project.studentorder.dao.StudentOrderDaoImpl;
 import edu.pet_project.studentorder.domain.*;
+import edu.pet_project.studentorder.exception.DaoException;
 import edu.pet_project.studentorder.mail.MailSender;
 import edu.pet_project.studentorder.validator.ChildrenValidator;
 import edu.pet_project.studentorder.validator.CityRegisterValidator;
@@ -35,21 +37,26 @@ public class StudentOrderValidator {
 
     }
     public void checkAll() {
-        List<StudentOrder> soList = readStudentOrders();
-        for (StudentOrder so: soList){
-            checkOneOrder(so);
-
+        try {
+            List<StudentOrder> soList = readStudentOrders();
+            for (StudentOrder so : soList) {
+                checkOneOrder(so);
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
         }
 
     }
 
-    public List <StudentOrder> readStudentOrders() {
-        List<StudentOrder> soList = new LinkedList<>();
-        for (int j=0; j<5; j++){
-            StudentOrder so= SaveStudentOrder.buildStudentOrder(j);
-            soList.add(so);
-        }
-        return soList;
+    public List <StudentOrder> readStudentOrders() throws DaoException {
+//        List<StudentOrder> soList = new LinkedList<>();
+//        for (int j=0; j<5; j++){
+//            StudentOrder so= SaveStudentOrder.buildStudentOrder(j);
+//            soList.add(so);
+//        }
+//        return soList;
+//
+        return new StudentOrderDaoImpl().getStudentOrders();
     }
 
     public void checkOneOrder (StudentOrder so){
