@@ -9,21 +9,15 @@ import edu.pet_project.studentorder.exception.DaoException;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DictionaryDaoImplTest {
-
+//Сначало нужно создать объект Logger
+    private static final Logger logger = LoggerFactory.getLogger(DictionaryDaoImplTest.class.getName());
+    private static final Logger logger1 = LoggerFactory.getLogger(DictionaryDaoImplTest.class);
     @BeforeClass //выполняется вначале один раз перд всеми методами
     public static void startUp() throws Exception {
       DBInit.startUp();
@@ -31,6 +25,7 @@ public class DictionaryDaoImplTest {
 
     @Test
     public void testStreet() throws DaoException {
+        logger1.error("Test");
         List<Street> d = new DictionaryDaoImpl().findStreets("про");
         Assert.assertTrue(d.size() == 2);
     }
