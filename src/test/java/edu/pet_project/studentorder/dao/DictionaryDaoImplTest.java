@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DictionaryDaoImplTest {
 //Сначало нужно создать объект Logger
-    private static final Logger logger = LoggerFactory.getLogger(DictionaryDaoImplTest.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(DictionaryDaoImplTest.class);
     private static final Logger logger1 = LoggerFactory.getLogger(DictionaryDaoImplTest.class);
     @BeforeClass //выполняется вначале один раз перд всеми методами
     public static void startUp() throws Exception {

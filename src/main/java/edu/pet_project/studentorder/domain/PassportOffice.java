@@ -37,4 +37,13 @@ public class PassportOffice {
     public void setOfficeName(String officeName) {
         OfficeName = officeName;
     }
+
+    @Override
+    public String toString() {
+        return "PassportOffice{" +
+                "officeId=" + officeId +
+                ", officeAreaId='" + officeAreaId + '\'' +
+                ", OfficeName='" + OfficeName + '\'' +
+                '}';
+    }
 }

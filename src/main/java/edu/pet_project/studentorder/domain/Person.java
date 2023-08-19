@@ -61,4 +61,15 @@ public abstract class Person {
    public void setDateOfBirthday(LocalDate dateOfBirthday) {
       this.dateOfBirthday = dateOfBirthday;
    }
+
+   @Override
+   public String toString() {
+      return "Person{" +
+              "surname='" + surname + '\'' +
+              ", givenName='" + givenName + '\'' +
+              ", patronomyc='" + patronomyc + '\'' +
+              ", dateOfBirthday=" + dateOfBirthday +
+              ", address=" + address +
+              '}';
+   }
 }

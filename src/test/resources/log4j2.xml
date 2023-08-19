@@ -9,15 +9,19 @@
                 </pattern>
             </PatternLayout>
             <Policies>
-                <SizeBasedTriggeringPolicy size="1 KB" />
+                <SizeBasedTriggeringPolicy size="5 MB" />
             </Policies>
             <DefaultRolloverStrategy max="1">
             </DefaultRolloverStrategy>
         </RollingFile>
     </Appenders>
     <Loggers>
+        <Logger name = "edu.pet_project.studentorder"
+        level="info">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
         <Logger name = "edu.pet_project.studentorder.dao"
-        level="all" additivity="false">
+                level="all" additivity="false">
             <AppenderRef ref="RollingFile"/>
         </Logger>
 

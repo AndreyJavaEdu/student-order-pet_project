@@ -94,4 +94,19 @@ public class StudentOrder {
     public void setMarriageOffice(RegisterOffice marriageOffice) {
         this.marriageOffice = marriageOffice;
     }
+
+    @Override
+    public String toString() {
+        return "StudentOrder{" +
+                "studentOrderId=" + studentOrderId +
+                ", studentOrderStatus=" + studentOrderStatus +
+                ", studentOrderDate=" + studentOrderDate +
+                ", husband=" + husband +
+                ", wife=" + wife +
+                ", children=" + children +
+                ", MarriageCertificateId='" + MarriageCertificateId + '\'' +
+                ", marriageOffice=" + marriageOffice +
+                ", MarriageDate=" + MarriageDate +
+                '}';
+    }
 }
