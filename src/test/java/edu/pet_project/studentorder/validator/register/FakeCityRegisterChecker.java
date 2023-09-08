@@ -2,11 +2,10 @@ package edu.pet_project.studentorder.validator.register;
 
 import edu.pet_project.studentorder.domain.Adult;
 import edu.pet_project.studentorder.domain.Child;
-import edu.pet_project.studentorder.domain.CityRegisterResponse;
+import edu.pet_project.studentorder.domain.register.CityRegisterResponse;
 import edu.pet_project.studentorder.domain.Person;
 import edu.pet_project.studentorder.exception.CityRegisterException;
 import edu.pet_project.studentorder.exception.TransportException;
-import edu.pet_project.studentorder.validator.register.CityRegisterChecker;
 
 public class FakeCityRegisterChecker implements CityRegisterChecker {
     private static final String GOOD_1 = "1000";
@@ -24,13 +23,13 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
             Adult t = (Adult) person; //приведение
             String ps = t.getPassportSerial();
             if (t.getPassportSerial().equals(GOOD_1) || t.getPassportSerial().equals(GOOD_2)) {
-                res.setExisting(true);
+                res.setRegistered(true);
                 res.setTemporal(false);
 
 
             }
             if (t.getPassportSerial().equals(BAD_1) || t.getPassportSerial().equals(BAD_2)) {
-                res.setExisting(false);
+                res.setRegistered(false);
             }
             if (t.getPassportSerial().equals(ERROR_1) || t.getPassportSerial().equals(ERROR_2)) {
                 CityRegisterException ex =
@@ -45,7 +44,7 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
             }
         }
             if (person instanceof Child){
-                res.setExisting(true);
+                res.setRegistered(true);
                 res.setTemporal(true);
             }
 

@@ -3,6 +3,8 @@ package edu.pet_project.studentorder.dao;
 import edu.pet_project.studentorder.config.Config;
 import edu.pet_project.studentorder.domain.*;
 import edu.pet_project.studentorder.exception.DaoException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.xml.transform.Result;
 import java.sql.*;
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StudentOrderDaoImpl implements StudentOrderDao {
+    private static final Logger logger = LoggerFactory.getLogger(StudentOrderDaoImpl.class);
     private static final String INSERT_ORDER =
             "INSERT INTO public.jc_student_order(" +
                     "student_order_status, student_order_date, h_surname, h_given_name," +
@@ -76,6 +79,8 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
     @Override
     public Long saveStudentOrder(StudentOrder so) throws DaoException {
         Long result =-1L;
+
+        logger.debug("SO: {}", so );
         try (Connection con = getConnection();
              PreparedStatement stmt = con.prepareStatement(INSERT_ORDER, new String[]{"student_order_id"})) {
             con.setAutoCommit(false);
@@ -104,6 +109,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
 
                 con.commit();
             } catch (SQLException ex){
+                logger.error(ex.getMessage(), ex);
                 con.rollback();
                 throw ex;
             }
@@ -188,6 +194,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
             }
             rs.close();
         }catch (SQLException ex){
+            logger.error(ex.getMessage(), ex);
             throw new DaoException(ex);
         }
         return result;
@@ -208,6 +215,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
             findChildren(con, result);
             rs.close();
         }catch (SQLException ex){
+            logger.error(ex.getMessage(), ex);
             throw new DaoException(ex);
         }
         return result;

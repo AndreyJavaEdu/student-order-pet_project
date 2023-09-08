@@ -1,4 +1,4 @@
-package edu.pet_project.studentorder.domain;
+package edu.pet_project.studentorder.domain.register;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,6 +2,7 @@ package edu.pet_project.studentorder;
 
 import edu.pet_project.studentorder.dao.StudentOrderDaoImpl;
 import edu.pet_project.studentorder.domain.*;
+import edu.pet_project.studentorder.domain.register.AnswerCityRegister;
 import edu.pet_project.studentorder.exception.DaoException;
 import edu.pet_project.studentorder.mail.MailSender;
 import edu.pet_project.studentorder.validator.ChildrenValidator;
@@ -9,8 +10,6 @@ import edu.pet_project.studentorder.validator.CityRegisterValidator;
 import edu.pet_project.studentorder.validator.StudentValidator;
 import edu.pet_project.studentorder.validator.WeddingValidator;
 
-import java.sql.*;
-import java.util.LinkedList;
 import java.util.List;
 
 public class StudentOrderValidator {

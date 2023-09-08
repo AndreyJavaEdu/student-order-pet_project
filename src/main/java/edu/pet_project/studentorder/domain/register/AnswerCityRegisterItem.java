@@ -1,4 +1,6 @@
-package edu.pet_project.studentorder.domain;
+package edu.pet_project.studentorder.domain.register;
+
+import edu.pet_project.studentorder.domain.Person;
 
 public class AnswerCityRegisterItem {
 
