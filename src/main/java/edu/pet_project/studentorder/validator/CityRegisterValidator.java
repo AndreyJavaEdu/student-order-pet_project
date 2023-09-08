@@ -1,10 +1,13 @@
 package edu.pet_project.studentorder.validator;
 
 import edu.pet_project.studentorder.domain.*;
+import edu.pet_project.studentorder.domain.register.AnswerCityRegister;
+import edu.pet_project.studentorder.domain.register.AnswerCityRegisterItem;
+import edu.pet_project.studentorder.domain.register.CityRegisterResponse;
 import edu.pet_project.studentorder.exception.CityRegisterException;
 import edu.pet_project.studentorder.exception.TransportException;
 import edu.pet_project.studentorder.validator.register.CityRegisterChecker;
-import edu.pet_project.studentorder.validator.register.FakeCityRegisterChecker;
+import edu.pet_project.studentorder.validator.register.RealCityRegisterChecker;
 
 import java.util.List;
 
@@ -16,7 +19,7 @@ public static final String IN_CODE = "NO_GRN";
 
     public CityRegisterValidator() {
 
-        personChecker = new FakeCityRegisterChecker();
+        personChecker = new RealCityRegisterChecker();
     }
 
 
@@ -38,7 +41,7 @@ public static final String IN_CODE = "NO_GRN";
         AnswerCityRegisterItem.CityError error=null;
         try {
             CityRegisterResponse tmp = personChecker.checkPerson(person);
-            status = tmp.isExisting() ?
+            status = tmp.isRegistered() ?
                     AnswerCityRegisterItem.CityStatus.YES:
                     AnswerCityRegisterItem.CityStatus.NO;
         } catch (CityRegisterException ex) {
